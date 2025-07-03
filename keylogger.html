@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Basic Keylogger</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        
+        #log {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #444;
+            background: #f9f9f9;
+            height: 200px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Basic Keylogger (for educational use)</h2>
+    <p>Start typing anywhere on the page. Keystrokes will be logged below:</p>
+    <div id="log"></div>
+
+    <script>
+        const logDiv = document.getElementById("log");
+
+        document.addEventListener("keydown", function(event) {
+            let key = event.key;
+            if (key === " ") key = "[SPACE]";
+            if (key === "Enter") key = "[ENTER]";
+            logDiv.textContent += key + " ";
+            logDiv.scrollTop = logDiv.scrollHeight;
+        });
+    </script>
+</body>
+
+</html>
